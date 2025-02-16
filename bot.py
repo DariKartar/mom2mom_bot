@@ -14,6 +14,8 @@ print("GOOGLE_CREDENTIALS:", os.getenv('GOOGLE_CREDENTIALS'))
 from dotenv import load_dotenv
 load_dotenv()
 
+from dotenv import load_dotenv
+load_dotenv()
 creds_json = json.loads(os.getenv('GOOGLE_CREDENTIALS'))
 creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_json, scope)
 client = gspread.authorize(creds)
