@@ -41,7 +41,6 @@ async def start_survey(message: types.Message, state: FSMContext):
     user_answers[message.from_user.id] = []
     await message.answer(
         "Привет! Я — бот клуба «от Мамы к Маме (mom2mom)»."
-"
         "Спасибо за твой интерес! Сейчас я задам несколько вопросов."
     )
     await message.answer("1. Сколько у тебя детей и какого они возраста? Планируешь ли ты брать ребёнка с собой?")
