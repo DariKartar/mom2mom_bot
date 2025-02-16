@@ -10,7 +10,7 @@ API_TOKEN = '7566792283:AAHlJmgc7bph85DjSWVt-fcQ8Bz2JnIwM0U'
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 import json
 import os
-
+print("GOOGLE_CREDENTIALS:", os.getenv('GOOGLE_CREDENTIALS'))
 creds_json = json.loads(os.getenv('GOOGLE_CREDENTIALS'))
 creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_json, scope)
 client = gspread.authorize(creds)
