@@ -1,4 +1,3 @@
-
 from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
@@ -39,10 +38,7 @@ class SurveyStates(StatesGroup):
 async def start_survey(message: types.Message, state: FSMContext):
     await state.finish()
     user_answers[message.from_user.id] = []
-    await message.answer(
-        "Привет! Я — бот клуба «от Мамы к Маме (mom2mom)»."
-        "Спасибо за твой интерес! Сейчас я задам несколько вопросов."
-    )
+    await message.answer("Привет! Я — бот клуба «от Мамы к Маме (mom2mom)».\nСпасибо за твой интерес! Сейчас я задам несколько вопросов.")
     await message.answer("1. Сколько у тебя детей и какого они возраста? Планируешь ли ты брать ребёнка с собой?")
     await SurveyStates.Q1.set()
 
