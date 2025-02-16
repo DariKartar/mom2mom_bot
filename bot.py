@@ -8,7 +8,11 @@ API_TOKEN = '7566792283:AAHlJmgc7bph85DjSWVt-fcQ8Bz2JnIwM0U'
 
 # Подключаемся к Google Таблице
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("mom2mom-bot-93fdc82ee3c7.json", scope)
+import json
+import os
+
+creds_json = json.loads(os.getenv('GOOGLE_CREDENTIALS'))
+creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_json, scope)
 client = gspread.authorize(creds)
 sheet = client.open_by_url("https://docs.google.com/spreadsheets/d/1Ggyk-V-luAoZZlMoAqFe3erhsnvkKuBIOv2xDk7RGKY/edit?usp=sharing").sheet1
 
